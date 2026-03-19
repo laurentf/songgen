@@ -1,0 +1,23 @@
+# === Pod worker (installed on RunPod volume) ===
+# Install torch separately with cu124 wheel:
+#   pip install torch==2.6.0 torchaudio==2.6.0 --index-url https://download.pytorch.org/whl/cu124
+torch==2.6.0
+torchaudio==2.6.0
+
+# SongGeneration deps
+lightning>=2.5.2
+transformers==4.37.2
+huggingface_hub==0.25.2
+omegaconf>=2.3.0
+
+# Worker
+supabase>=2.0.0
+pydantic>=2.7.0
+structlog>=23.0.0
+
+# === Local scripts (your machine) ===
+requests>=2.31.0
+python-dotenv>=1.0.0
+
+# === Dev ===
+pytest>=8.0.0

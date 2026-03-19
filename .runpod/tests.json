@@ -1,0 +1,41 @@
+{
+  "tests": [
+    {
+      "name": "single_track_pop",
+      "input": {
+        "tracks": [
+          {
+            "idx": "test_pop_001",
+            "gt_lyric": "[intro-short]\n[verse] Walking through the city rain. Each step feels like a memory.\n[chorus] The warmth of yesterday remains. But you are gone.\n[outro-short]",
+            "descriptions": "female, pop, sad, piano, the bpm is 120"
+          }
+        ]
+      },
+      "timeout": 600000
+    },
+    {
+      "name": "single_track_with_params",
+      "input": {
+        "tracks": [
+          {
+            "idx": "test_rock_001",
+            "gt_lyric": "[intro-short]\n[verse] Thunder in the valley tonight. We ride until the morning light.\n[chorus] We burn we rise we fight. Against the dying of the light.\n[outro-short]",
+            "descriptions": "male, rock, energetic, electric guitar and drums, the bpm is 140",
+            "params": {
+              "temperature": 0.8,
+              "top_k": 80
+            }
+          }
+        ]
+      },
+      "timeout": 600000
+    },
+    {
+      "name": "empty_tracks_error",
+      "input": {
+        "tracks": []
+      },
+      "timeout": 30000
+    }
+  ]
+}

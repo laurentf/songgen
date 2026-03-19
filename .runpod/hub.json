@@ -1,0 +1,26 @@
+{
+  "title": "SongGeneration v2",
+  "description": "Full song generation (vocals + instruments) powered by SongGeneration v2-large (Tencent AI Lab). 4B parameter hybrid LLM + Diffusion model. Generates up to 4m30 songs from lyrics and style tags. Outputs 48kHz stereo WAV.",
+  "type": "serverless",
+  "category": "audio",
+  "config": {
+    "runsOn": "GPU",
+    "containerDiskInGb": 20,
+    "volumeInGb": 50,
+    "gpuIds": "AMPERE_48,ADA_24,AMPERE_24",
+    "gpuCount": 1,
+    "allowedCudaVersions": [
+      "12.4",
+      "12.5",
+      "12.6",
+      "12.7",
+      "12.8",
+      "12.9"
+    ],
+    "env": [
+      { "key": "SONGGEN_CKPT_PATH", "value": "/runpod-volume/songgeneration_v2_large" },
+      { "key": "SONGGEN_SHARED_CKPT_PATH", "value": "/runpod-volume/ckpt" },
+      { "key": "USE_LOW_MEM", "value": "false" }
+    ]
+  }
+}
