@@ -45,7 +45,7 @@ docker run --gpus all \
   -e SUPABASE_KEY=your_secret_key \
   -e SUPABASE_BUCKET=songs \
   -v /your/local/models:/models \
-  naturelbenton/songgen-worker:dev-v1.0.3
+  naturelbenton/songgen-worker:latest
 ```
 
 On first run, model weights (~17 GB) are downloaded from HuggingFace into the mounted volume. Set `HF_TOKEN` if needed.
@@ -91,7 +91,7 @@ docker run --gpus all \
 | Field | Value |
 |-------|-------|
 | Template Name | `songgen-worker` |
-| Container Image | `naturelbenton/songgen-worker:dev-v1.0.3` |
+| Container Image | `naturelbenton/songgen-worker:latest` |
 | Container Disk | `20 GB` |
 | Docker Command | **leave empty** |
 
@@ -121,7 +121,7 @@ Do NOT set `SONGGEN_REPO_PATH` — defaults to `/app/SongGeneration` (baked in i
 |-------|-------|
 | Endpoint Name | `songgen` |
 | Template | `songgen-worker` |
-| GPU | any with >=24 GB VRAM |
+| GPU | any with >=48 GB VRAM (A40, A100) or >=10 GB with `USE_LOW_MEM=true` |
 | Active (Min) Workers | `0` |
 | Max Workers | `1` |
 | Idle Timeout | `5` seconds |
@@ -245,7 +245,7 @@ Failed tracks return `"status": "error"` with `error_message` — the batch cont
 
 ## Docker Image
 
-`naturelbenton/songgen-worker:dev-v1.0.3`
+`naturelbenton/songgen-worker:latest`
 
 Contains: CUDA 12.4, Python 3.11, flash-attn 2.7.4, all deps, SongGeneration code with patched imports.
 
