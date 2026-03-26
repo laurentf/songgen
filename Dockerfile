@@ -58,4 +58,4 @@ ENV SONGGEN_SHARED_CKPT_PATH=/runpod-volume/ckpt
 ENV RUNPOD_VOLUME_PATH=/runpod-volume
 ENV USE_LOW_MEM=false
 
-CMD ["python", "-u", "handler.py"]
+CMD ["python3", "-u", "handler.py"]
